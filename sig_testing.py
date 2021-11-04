@@ -7,7 +7,7 @@ Created on Thu Nov  4 14:04:27 2021
 
 import pandas as pd
 import numpy as np
-import scipy.stats as stats
+import scipy as sc
 import streamlit as st
 
 #%%
@@ -49,7 +49,7 @@ st.write(uploaded_df[['Test','Control']].describe()[:2])
 
 group1 = uploaded_df['Test'].to_list()
 group2 = uploaded_df['Control'].to_list()
-s, p = stats.mannwhitneyu(group1, group2, alternative='two-sided')
+s, p = sc.stats.stats.mannwhitneyu(group1, group2, alternative='two-sided')
 #st.write(stats.mannwhitneyu(group1, group2, alternative='two-sided'))
 st.write("Statistc: ",s)
 st.write("P Value: ",p)
